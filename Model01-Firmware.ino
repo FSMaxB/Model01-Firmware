@@ -54,6 +54,7 @@
 #include "Kaleidoscope-USB-Quirks.h"
 
 #include "Kaleidoscope-LED-ActiveModColor.h"
+#include "Kaleidoscope-Heatmap.h"
 
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
@@ -408,6 +409,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // These static effects turn your keyboard's LEDs a variety of colors
   solidRed, solidOrange, solidGreen, solidBlue, solidIndigo,
+
+  HeatmapEffect,
 
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
