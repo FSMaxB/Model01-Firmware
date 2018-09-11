@@ -53,6 +53,8 @@
 // Support for USB quirks, like changing the key state report protocol
 #include "Kaleidoscope-USB-Quirks.h"
 
+#include "Kaleidoscope-LED-ActiveModColor.h"
+
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -430,7 +432,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // comfortable - or able - to do automatically, but can be useful
   // nevertheless. Such as toggling the key report protocol between Boot (used
   // by BIOSes) and Report (NKRO).
-  USBQuirks
+  USBQuirks,
+
+  // Highlight the active modifier
+  ActiveModColorEffect
 );
 
 /** The 'setup' function is one of the two standard Arduino sketch functions.
@@ -449,6 +454,8 @@ void setup() {
   // This draws more than 500mA, but looks much nicer than a dimmer effect
   LEDRainbowEffect.brightness(150);
   LEDRainbowWaveEffect.brightness(150);
+
+  ActiveModColorEffect.highlight_color = CRGB(130, 100, 0);
 
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
