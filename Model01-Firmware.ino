@@ -405,7 +405,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   LEDRainbowWaveEffect,
 
   // These static effects turn your keyboard's LEDs a variety of colors
-  solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
+  solidRed, solidOrange, solidGreen, solidBlue, solidIndigo,
 
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
