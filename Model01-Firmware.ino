@@ -38,9 +38,6 @@
 // Support for LED modes that set all LEDs to a single color
 #include "Kaleidoscope-LEDEffect-SolidColor.h"
 
-// Support for an LED mode that makes all the LEDs 'breathe'
-#include "Kaleidoscope-LEDEffect-Breathe.h"
-
 // Support for an LED mode that makes a red pixel chase a blue pixel across the keyboard
 #include "Kaleidoscope-LEDEffect-Chase.h"
 
@@ -422,9 +419,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // These static effects turn your keyboard's LEDs a variety of colors
   solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
-
-  // The breathe effect slowly pulses all of the LEDs on your keyboard
-  LEDBreatheEffect,
 
   // The AlphaSquare effect prints each character you type, using your
   // keyboard's LEDs as a display
