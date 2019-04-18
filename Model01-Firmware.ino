@@ -332,20 +332,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 
-
-// These 'solid' color effect definitions define a rainbow of
-// LED color modes calibrated to draw 500mA or less on the
-// Keyboardio Model 01.
-
-
-static kaleidoscope::plugin::LEDSolidColor solidRed(160, 0, 0);
-static kaleidoscope::plugin::LEDSolidColor solidOrange(140, 70, 0);
-static kaleidoscope::plugin::LEDSolidColor solidYellow(130, 100, 0);
-static kaleidoscope::plugin::LEDSolidColor solidGreen(0, 160, 0);
-static kaleidoscope::plugin::LEDSolidColor solidBlue(0, 70, 130);
-static kaleidoscope::plugin::LEDSolidColor solidIndigo(0, 0, 170);
-static kaleidoscope::plugin::LEDSolidColor solidViolet(130, 0, 120);
-
 /** toggleLedsOnSuspendResume toggles the LEDs off when the host goes to sleep,
  * and turns them back on when it wakes up.
  */
@@ -422,23 +408,20 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // LEDControl provides support for other LED modes
   LEDControl,
 
-  // We start with the LED effect that turns off all the LEDs.
-  LEDOff,
-
-  // The rainbow effect changes the color of all of the keyboard's keys at the same time
-  // running through all the colors of the rainbow.
-  LEDRainbowEffect,
 
   // The rainbow wave effect lights up your keyboard with all the colors of a rainbow
   // and slowly moves the rainbow across your keyboard
   LEDRainbowWaveEffect,
 
-  // These static effects turn your keyboard's LEDs a variety of colors
-  solidRed, solidOrange, solidGreen, solidBlue, solidIndigo,
+  // The rainbow effect changes the color of all of the keyboard's keys at the same time
+  // running through all the colors of the rainbow.
+  LEDRainbowEffect,
+
+  // We start with the LED effect that turns off all the LEDs.
+  LEDOff,
 
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
-  HeatmapEffect,
 
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
@@ -487,11 +470,6 @@ void setup() {
   LEDRainbowWaveEffect.brightness(150);
 
   ActiveModColorEffect.highlight_color = CRGB(130, 100, 0);
-
-  // We want to make sure that the firmware starts with LED effects off
-  // This avoids over-taxing devices that don't have a lot of power to share
-  // with USB devices
-  LEDOff.activate();
 
   // To make the keymap editable without flashing new firmware, we store
   // additional layers in EEPROM. For now, we reserve space for five layers. If
